@@ -1983,7 +1983,7 @@ var RLANG = {
 			{
 				$.ajax({
 					url: this.opts.autosave,
-					type: 'post',
+					type: 'put',
 					data: this.$el.attr('name') + '=' + escape(encodeURIComponent(this.getCode())),
 					success: $.proxy(function(data)
 					{
