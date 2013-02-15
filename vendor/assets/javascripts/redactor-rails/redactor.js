@@ -108,7 +108,6 @@ var RLANG = {
 	{
 		// Element
 		this.$el = $(element);
-
 		// Lang
 		if (typeof options !== 'undefined' && typeof options.lang !== 'undefined' && options.lang !== 'en' && typeof RELANG[options.lang] !== 'undefined')
 		{
@@ -807,6 +806,14 @@ var RLANG = {
 
 			// construct editor
 		    this.build(false, afterBuild);
+
+		    // Set placeholder
+		    // if($(this.getCode()).text() == "") {
+		    // 	var wrapper = this.$el.closest(".redactor_wrapper"),
+		    // 		text = "<p>" + wrapper.data("placeholder") + "</p>";
+		    // 	this.setCode(text);
+		    // }
+
 
 		},
 		shortcuts: function(e, cmd)
@@ -1981,10 +1988,12 @@ var RLANG = {
 		{
 			this.autosaveInterval = setInterval($.proxy(function()
 			{
+
+				
 				$.ajax({
-					url: this.opts.autosave,
+					url: this.$el.closest(".redactor_wrapper").data('url'),
 					type: 'put',
-					data: this.$el.attr('name') + '=' + escape(encodeURIComponent(this.getCode())),
+					data: this.$el.closest(".redactor_wrapper").attr('name') + '=' + escape( this.getCode() ),
 					success: $.proxy(function(data)
 					{
 						// callback
