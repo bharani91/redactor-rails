@@ -149,9 +149,9 @@ var RLANG = {
 			convertDivs: true,
 			protocol: 'http://', // for links http or https or ftp or false
 
-			autosave: false, // false or url
+			autosave: true, // false or url
 			autosaveCallback: false, // function
-			interval: 60, // seconds
+			interval: 120, // seconds
 
 			imageGetJson: false, // url (ex. /folder/images.json ) or false
 
@@ -2000,9 +2000,9 @@ var RLANG = {
 							$("span.status").text("Last saved 1 min ago")
 						}, 6000);
 
-						
 
-				
+
+
 						// callback
 						if (typeof this.opts.autosaveCallback === 'function')
 						{
