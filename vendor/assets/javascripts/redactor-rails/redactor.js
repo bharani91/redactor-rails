@@ -1996,11 +1996,6 @@ var RLANG = {
 					data: this.$el.closest(".redactor_wrapper").attr('name') + '=' + escape( this.getCode() ),
 					success: $.proxy(function(data)
 					{
-						$("span.status").text("Autosaved successfully!");
-						setTimeout(function() {
-							$("span.status").text("Last saved 1 min ago")
-						}, 6000);
-						
 						// callback
 						if (typeof this.opts.autosaveCallback === 'function')
 						{
