@@ -1178,7 +1178,7 @@ var RLANG = {
 		// API functions
 		setCode: function(html)
 		{
-			html = this.stripTags(unescape(decodeURIComponent(html)));
+			html = this.stripTags(html);
 			this.$editor.html(html).focus();
 
 			this.syncCode();
@@ -1991,7 +1991,7 @@ var RLANG = {
 				$.ajax({
 					url: this.$el.closest(".redactor_wrapper").data('url'),
 					type: 'put',
-					data: this.$el.closest(".redactor_wrapper").attr('name') + '=' + escape(encodeURIComponent(this.getCode())) ,
+					data: this.$el.closest(".redactor_wrapper").attr('name') + '=' + this.getCode(),
 					success: $.proxy(function(data)
 					{
 						// callback
