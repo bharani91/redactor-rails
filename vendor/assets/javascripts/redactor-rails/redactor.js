@@ -1991,7 +1991,7 @@ var RLANG = {
 				$.ajax({
 					url: this.$el.closest(".redactor_wrapper").data('url'),
 					type: 'put',
-					data: this.$el.closest(".redactor_wrapper").attr('name') + '=' + escape( this.getCode() ),
+					data: this.$el.closest(".redactor_wrapper").attr('name') + '=' + escape(encodeURIComponent(this.getCode())) ,
 					success: $.proxy(function(data)
 					{
 						// callback
