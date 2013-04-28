@@ -1178,7 +1178,7 @@ var RLANG = {
 		// API functions
 		setCode: function(html)
 		{
-			html = this.stripTags(html);
+			html = this.stripTags(unescape(decodeURIComponent(html)));
 			this.$editor.html(html).focus();
 
 			this.syncCode();
